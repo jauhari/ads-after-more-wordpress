@@ -1,0 +1,20 @@
+#kode asli nemu di Internet
+
+add_filter('the_content', 'adds_block');
+
+function adds_block($content){
+  if (is_single())
+  global $post;
+  $thePostID = $post->ID; // getting the post ID
+  $new_insert = '<span id="more-' .$thePostID.'"></span>' ;
+  return str_replace($new_insert, my_ad(), $content);
+}
+
+function my_ad() {
+return '
+<div class="adios2">
+<span>Advertisement</span>
+<!-- LOKASI IKLAN KAMU DISINI -->
+</div>
+'; 
+}
